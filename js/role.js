@@ -1,4 +1,11 @@
 let _allRoles = [];
+let _skills = [
+  "strength",
+  "dexterity",
+  "constitution",
+  "intelligence",
+  "luck"
+];
 
 export class Role {
   constructor(name, skills) {
@@ -11,7 +18,19 @@ export class Role {
   static getAllRoles() {
     return _allRoles;
   }
+
+  static getSkills() {
+    return _skills;
+  }
 }
+
+const barbarian = new Role("Barbarian", {
+  strength: 18,
+  dexterity: 5,
+  constitution: 18,
+  intelligence: 4,
+  luck: 5,
+});
 
 const wizard = new Role("Wizard", {
   strength: 7,
@@ -19,7 +38,7 @@ const wizard = new Role("Wizard", {
   constitution: 5,
   intelligence: 20,
   luck: 11
-})
+});
 
 const warrior = new Role("Warrior", {
   strength: 15,

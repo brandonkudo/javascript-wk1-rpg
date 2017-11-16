@@ -7,12 +7,14 @@ export class Character {
     return _allCharacters;
   }
 
-  constructor(name, hp) {
+  constructor(name, hp = 100) {
     this.id = this.getCharacters().count + 1;
     this.name = name;
     this.maxHp = hp;
     this.hp = hp;
-    this.skills = [];
+    this.skills = {};
+    this.level = 1;
+    this.xp = 0;
 
     _allCharacters.push(this);
 
@@ -44,5 +46,30 @@ export class Character {
     this.setHp(newHp);
   }
 
+  addXp(amount) {
+     this.xp = this.xp + amount;
+     while (this.xp >= this.getNeededXp()) {
+      this.level += 1;
+     }
+  }
 
+  getNeededXp() {
+    let level = this.level + 1;
+    return 25*(3*level + 2)*(level - 1);
+  }
+
+  getSkill(skill, ignoreBuff = false) {
+    let hasSkill = this.skills[skill];
+    return hasSkill ? hasSkill : 0;
+  }
+
+  setSkill(skill, value) {
+    this.skills[skill] = value;
+  }
+
+  addSkill(skill, addAmount) {
+    let oldSkill = this.getSkill(skill, true);
+    let newSkill = oldSkill + addAmount;
+    this.setSkill(skill, newSkill);
+  }
 }
