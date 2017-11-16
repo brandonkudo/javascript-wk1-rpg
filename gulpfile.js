@@ -9,6 +9,7 @@ var buildProduction = utilities.env.production;
 var jshint = require('gulp-jshint');
 var browserSync = require('browser-sync').create();
 var babelify = require("babelify");
+var sass = require('node-sass');
 var lib = require('bower-files')({
   "overrides":{
     "bootstrap" : {
@@ -61,7 +62,7 @@ gulp.task('bowerBuild', ['bower'], function(){
 
 gulp.task("cssBuild", function() {
   gulp.src(['css/*.css'])
-  .pipe(concat('vendor.css'))
+  .pipe(concat('app.css'))
   .pipe(gulp.dest('./build/css'))
 });
 

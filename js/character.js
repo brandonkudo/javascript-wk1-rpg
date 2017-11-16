@@ -1,7 +1,5 @@
 let _allCharacters = [];
 
-
-
 export class Character {
   getCharacters() {
     return _allCharacters;
@@ -17,7 +15,6 @@ export class Character {
     this.xp = 0;
 
     _allCharacters.push(this);
-
   }
 
   setMaxHp(maxHp) {

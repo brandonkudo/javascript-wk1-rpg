@@ -1,8 +1,6 @@
 import { Character } from "./../js/character.js";
 
 let testCharacter;
-
-
 describe("Character", function() {
   beforeEach(function() {
     testCharacter = new Character("TestMan", 100);
