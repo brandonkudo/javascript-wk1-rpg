@@ -19,7 +19,7 @@ export class BaseItem {
   }
 
   getStat(stat, character, round = false, ignoreSkills = false) {
-    // try {
+    try {
       let skillValue = this.data.stats[stat];
       const skillStats = this.data.skillStats[stat];
       if (!ignoreSkills && skillStats) {
@@ -31,10 +31,10 @@ export class BaseItem {
 
       }
       return round ? Math.round(skillValue) : skillValue;
-    // }
-    // catch(err) {
-    //   return 0;
-    // }
+    }
+    catch(err) {
+      return 0;
+    }
   }
 }
 
